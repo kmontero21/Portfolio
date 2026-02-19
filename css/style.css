@@ -1557,40 +1557,52 @@ body.offcanvas {
 
 /* --- FIX SIDEBAR FOOTER OVERLAP --- */
 
-/* 1. Ensure the sidebar has a flexible layout to push the footer down */
+/* 1. Ensure the sidebar is flexible and allows scrolling if the screen is too short */
 #colorlib-aside {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
     height: 100vh !important;
-    padding-bottom: 20px !important;
+    overflow-y: auto !important; /* Adds a scrollbar if the user zooms in too much */
+    padding: 30px 20px !important;
 }
 
-/* 2. Add space between the menu and the footer */
+/* 2. This pushes the menu and button to the top, and the footer to the bottom */
 #colorlib-aside #colorlib-main-menu {
-    flex-grow: 1 !important;
-    margin-bottom: 30px !important;
+    flex: 1 0 auto !important; /* Allows the menu to take up space but not shrink */
+    margin-bottom: 20px !important;
 }
 
-/* 3. Style the footer to be clean and not overlap */
-#colorlib-aside .colorlib-footer {
+/* 3. Fix the Download Resume button so it stays in the flow */
+/* Replace '.btn-download' with the actual class of your resume button if different */
+#colorlib-aside .btn-download, 
+#colorlib-aside a[href*="resume"], 
+#colorlib-aside a[href*="CV"] {
     position: relative !important;
-    bottom: 0 !important;
-    padding: 0 20px !important;
-    font-size: 13px !important; /* Slightly smaller to fit better */
-    line-height: 1.5 !important;
+    display: inline-block !important;
+    margin-bottom: 40px !important; /* Creates a gap between the button and the footer */
     width: 100% !important;
 }
 
-/* 4. Fix the social icons visibility in the footer */
-#colorlib-aside .colorlib-footer ul li a {
-    color: #999 !important;
-    font-size: 18px !important;
-    padding: 0 5px !important;
+/* 4. Style the footer to stay at the very bottom of the sidebar content */
+#colorlib-aside .colorlib-footer {
+    position: relative !important;
+    margin-top: auto !important; /* Pushes footer to the bottom of the flex container */
+    padding-top: 20px !important;
+    font-size: 12px !important; 
+    line-height: 1.4 !important;
+    width: 100% !important;
+    background: #f2f3f7 !important; /* Matches sidebar background to hide overlap if any */
 }
 
-#colorlib-aside .colorlib-footer ul li a:hover {
-    color: #2c98f0 !important;
+/* 5. Social icons styling */
+#colorlib-aside .colorlib-footer ul {
+    margin-bottom: 10px !important;
+    padding: 0 !important;
+}
+
+#colorlib-aside .colorlib-footer ul li {
+    display: inline-block !important;
+    margin: 0 5px !important;
 }
 /* --- FINAL SKILLS SPACING FIX --- */
 

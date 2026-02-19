@@ -1497,7 +1497,15 @@ body.offcanvas {
     background: transparent !important;
     margin-top: 20px;
 }
+/* Kill the 4em padding ONLY for the hero/slider section */
+#colorlib-main > section#colorlib-hero {
+    padding-top: 0 !important;
+}
 
+/* Optional: If you want the text even higher now that the padding is gone */
+#colorlib-hero .flexslider .slider-text > .slider-text-inner {
+    padding-top: 20px !important; /* Adjust this to move text up or down */
+}
 #colorlib-hero .flexslider .slider-text > .slider-text-inner .btn.btn-learn:hover {
     background: #fff !important;
     color: #000 !important;
@@ -1794,37 +1802,42 @@ body.offcanvas {
     background: #2c98f0;
 }
 
-/* Center the button and give it space */
-.download-wrap {
+/* --- SIDEBAR DOWNLOAD BUTTON FIX --- */
+
+.sidebar-download-container {
     text-align: center;
-    padding: 20px 0; /* Space above and below */
-    margin-bottom: 20px;
+    margin: 20px 0; /* Adds space above and below the button */
+    padding: 0 20px;
 }
 
-/* The actual button style */
-.btn-download {
-    background: #2c98f0;
+.btn-sidebar-download {
+    background: #2c98f0 !important;
     color: #fff !important;
-    padding: 10px 20px;
-    border-radius: 30px; /* Rounded pill shape looks more modern */
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
-    text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(44, 152, 240, 0.3);
+    padding: 8px 20px !important;
+    border-radius: 30px !important; /* Makes it a modern pill shape */
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(44, 152, 240, 0.3) !important;
+    transition: 0.3s !important;
 }
 
-/* Hover effect */
-.btn-download:hover {
-    background: #1a75bb;
+.btn-sidebar-download:hover {
+    background: #1a75bb !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(44, 152, 240, 0.4);
-    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(44, 152, 240, 0.4) !important;
 }
 
-.btn-download i {
+.btn-sidebar-download i {
     margin-right: 8px;
+}
+
+/* Fix the footer spacing so it doesn't overlap the new button */
+#colorlib-aside .colorlib-footer {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
